@@ -16,7 +16,7 @@ app.post("/",function(req,res){
    var email = req.body.email;
    var password = req.body.password;
 
-   var url = "https://us1.api.mailchimp.com/3.0/lists/414e49f658";
+   var url = "https://usX.api.mailchimp.com/3.0/lists/{listId}";
 //way to send data to mailchimp
    var data = {
      members : [
@@ -34,7 +34,7 @@ app.post("/",function(req,res){
    var jsonData = JSON.stringify(data);
    var options = {
      method : "POST",//for post request using https
-     auth : "cc2204:c3dfb68f4706275d094e9f757507fb8b-us1"//for athentication using api Key
+     auth : "cc2204:{api-key}"//for athentication using api Key
    }
 
 //to post request using https
@@ -63,6 +63,3 @@ app.post("/success",function(req,res){
 app.listen(process.env.PORT || 3000,function(req,res){
   console.log("Server called successfully");
 })
-
-//apikey : c3dfb68f4706275d094e9f757507fb8b-us1
-//listId : 414e49f658
